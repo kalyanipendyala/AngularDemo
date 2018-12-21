@@ -1,0 +1,17 @@
+<p>
+  customer Details:
+</p>
+<label>firstName</label>
+<input type="text" id="firstName"[(ngModel)]="firstName">
+
+<label>LastName | uppercase</label>
+<input type="text" id="lastName" [(ngModel)]="lastName">
+
+<label>Age | uppercase</label>
+<input type="text" id="age" [(ngModel)]="age">
+
+<label>Gender | uppercase</label>
+<input type="radio" id="gender" [(ngModel)]="gender">
+
+<button class="btn btn-primary" value="save" (keyup.enter)="onKeyup()">
+
