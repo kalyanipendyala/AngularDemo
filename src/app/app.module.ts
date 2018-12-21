@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { CourseComponent } from './course/course.component';
 import { AuthorsComponent } from './authors/authors.component';
 import { CustomerComponent } from './customer/customer.component';
+import { BindingComponent } from './binding/binding.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CourseComponent,
     AuthorsComponent,
-    CustomerComponent
+    CustomerComponent,
+    BindingComponent
   ],
   imports: [
     BrowserModule,

@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./course.component.css']
 })
 export class CourseComponent implements OnInit {
+  courses = ["course1","course2","course3"] ;
+  getCourses(){
+    return ["course1","course2","course3"];
+  }
 
-  constructor() { }
+  /* constructor() { } */
 
   ngOnInit() {
   }

@@ -1,0 +1,9 @@
+
+<p>Binding</p>
+<button class="glyphicon glyphicon-star"></button>
+
+<input type="text" [(ngModel)]="name" (keyup.enter)="onKeyup($event.target.value)" (click)="onClick()"/>
+<button class="btn btn-primary " [style.background-color]="name? 'green' :'red'" style="margin:10px;">styleBinding</button>
+
+<button class="btn" [class.btn-warning]="name == ''" [class.btn-primary]="name" >ClassBinding</button>
+<p>UpperCase Pipe:{{name |uppercase }}</p>

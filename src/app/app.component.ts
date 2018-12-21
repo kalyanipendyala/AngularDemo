@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: '<h1>hello World</h1><app-course></app-course><app-customer></app-customer>'
+  templateUrl: './app.component.html'
   
 })
 export class AppComponent {
-  title = 'my-app';
+  title = 'Angular 4';
 }
