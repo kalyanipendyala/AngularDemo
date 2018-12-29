@@ -10,7 +10,18 @@
     <div [ngSwitch]="viewMode">
         <div *ngSwitchCase="'ngIf'">
             <input type="checkbox" name="Select" value="{{ isSelected }}" (click)="onClick();">
-            <output *ngIf="isSelected">checkbox selected</output>
+            <div *ngIf="isSelected;then listofcourses else noCourses">
+
+            </div>
+            <ng-template #listofcourses>
+                <output>checkbox selected</output>
+                <ul>
+                    <li *ngFor="let course of courses"> {{ course.name}}</li>
+                </ul>
+            </ng-template>
+            <ng-template #noCourses>
+                No Courses yet
+            </ng-template>
         </div>
         <div *ngSwitchCase="'ngSwitch'">
             <button class="btn btn-primary" [class.active]="switchView == 'mapView'" (click)="switchView = 'mapView'">MapView</button>
