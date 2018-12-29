@@ -1,27 +1,31 @@
+<h1>Directives</h1>
+
+<ul class="nav nav-tabs">
+    <li role="presentation" class="btn" [class.active]="viewMode == 'ngIf'"><a href="/directives" (click)="changeViewMode('ngIf');">ngIf</a></li>
+    <li role="presentation" class="btn" [class.active]="viewMode == 'ngSwitch'"><a href="/directives" (click)="changeViewMode('ngSwitch');">ngSwitch</a></li>
+    <li role="presentation" class="btn" [class.active]="viewMode == 'ngFor'"><a href="/directives" (click)="changeViewMode('ngFor');">ngFor
+            And ChangeDetection</a></li>
+</ul>
 <div class="list-group">
-  <h1>Directives</h1>
-  
-  <div class="list-group-item-text">
-      <h2 class="list-group-item active list-group-item-heading">ngIf</h2>
-    <input type="checkbox" name="Select" value="{{ isSelected }}" (click)="onClick();">
-    <output *ngIf="isSelected">checkbox selected</output>
-  </div>
-
-  <div class="list-group-item-text">
-      <h2 class="list-group-item active list-group-item-heading">ngSwitch</h2>
-      <button class="btn btn-primary" [class.active]="viewMode == 'hidden'" (click)="viewMode = 'hidden'">Hidden</button>
-      <button class="btn btn-warning" [class.active]="viewMode == 'ngIf'" (click)="viewMode = 'ngIf'">NgIf</button>
-      <div [ngSwitch]="viewMode">
+    <div [ngSwitch]="viewMode">
         <div *ngSwitchCase="'ngIf'">
-            <output value="selection is {{viewMode}}"></output>
+            <input type="checkbox" name="Select" value="{{ isSelected }}" (click)="onClick();">
+            <output *ngIf="isSelected">checkbox selected</output>
         </div>
-
-        <div *ngSwitchCase="'hidden'">
-            <output value="selection is {{viewMode}}"></output>
-
+        <div *ngSwitchCase="'ngSwitch'">
+            <button class="btn btn-primary" [class.active]="switchView == 'mapView'" (click)="switchView = 'mapView'">MapView</button>
+            <button class="btn btn-warning" [class.active]="switchView == 'listView'" (click)="switchView = 'listView'">ListView</button>
+            <output value="selection is {{switchView}}"></output>
         </div>
-        <div *ngSwitchDefault>output2</div>
-      </div>
-    
-  </div>
-</div>
+        <div *ngSwitchCase="'ngFor'">
+            <button (click)="onAdd();">Add</button>
+            <ul>
+                <li *ngFor="let course of courses;index as i;even as isEven">
+                    {{i}} - {{course.name}}
+                    <span *ngIf="isEven">(EVEN)</span>
+                    <span> <button (click)="onDelete(course);">Delete</button></span>
+                </li>
+            </ul>
+        </div>
+        <div *ngSwitchDefault>DefaultCase</div>
+    </div>
