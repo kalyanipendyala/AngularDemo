@@ -1,0 +1,25 @@
+<form #templateVariable="ngForm" (ngSubmit)="submit(templateVariable)">
+  <div class="form-group">
+    <label for="firstName">FirstName</label>
+    <input ngModel name="firstNamevalue" #firstNameRef="ngModel" (change)="log(firstNameRef)" required minlength="3"
+      maxlength="10" id="firstName" type="text" class="form-control" >
+    <div class="alert alert-danger"  *ngIf="firstNameRef.touched && !firstNameRef.valid">
+      <div *ngIf="firstNameRef.errors.required">FirstName is required</div>
+      <div *ngIf="firstNameRef.errors.minlength">FirstName should be minimum {{
+        firstNameRef.errors.minlength.requiredLength }} required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="comment">Comment</label>
+    <textarea ngModel name="comment" #commentRef="ngModel" id="comment" cols="30" rows="10" class="form-control"
+      ></textarea>
+  </div>
+  <div class="checkbox">
+    <label>subscribe to</label>
+    <input type="checkbox" ngModel name="isSubscribed">
+  </div>
+  <p>
+    {{ templateVariable.value |json }}
+  </p>
+  <button class="btn btn-primary" [disabled]="!templateVariable.valid">Submit</button>
+</form>

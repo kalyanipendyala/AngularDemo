@@ -1,7 +1,7 @@
 
 <p>Binding</p>
 
-<input type="text" [(ngModel)]="name" (keyup.enter)="onKeyup($event.target.value)" (click)="onClick()"/>
+<input type="text" [(ngModel)]="name" (keyup.enter)="onKeyup($event.target.value)" (click)="onClick()" AutoSizeInput [extraWidth]="10" [minWidth]="100"/>
 <button class="btn btn-primary " [style.background-color]="name? 'green' :'red'" style="margin:10px;">styleBinding</button>
 
 <button class="btn" [class.btn-warning]="name == ''" [class.btn-primary]="name" >ClassBinding</button>
