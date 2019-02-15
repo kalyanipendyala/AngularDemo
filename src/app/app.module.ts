@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import { NgModule } from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {ReactiveFormsModule} from '@angular/forms'
+import {ReactiveFormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { CourseComponent } from './course/course.component';
@@ -15,6 +16,7 @@ import { DirectivesComponent } from './directives/directives.component';
 import {AutoSizeInputModule} from 'ngx-autosize-input';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { PasswordchangeComponent } from './passwordchange/passwordchange.component';
+import { PostsComponentComponent } from './posts-component/posts-component.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +28,15 @@ import { PasswordchangeComponent } from './passwordchange/passwordchange.compone
     HomeComponent,
     DirectivesComponent,
     ContactFormComponent,
-    PasswordchangeComponent
+    PasswordchangeComponent,
+    PostsComponentComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AutoSizeInputModule,  
     ReactiveFormsModule,  
+    HttpModule,
     RouterModule.forRoot([
       {
         path:"",
